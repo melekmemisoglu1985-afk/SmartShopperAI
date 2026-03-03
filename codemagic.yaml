@@ -4,7 +4,7 @@
     max_build_duration: 30
     environment:
       vars:
-        JAVA_HOME: "/usr/lib/jvm/java-11-openjdk"
+        JAVA_HOME: "/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home"
     scripts:
       - name: Clean project
         script: |
