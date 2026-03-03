@@ -1,6 +1,11 @@
 name: smart_shopper_ai
+description: AI Powered Shopping Assistant
+version: 1.0.0+1
 environment:
   sdk: '>=3.0.0 <4.0.0'
 dependencies:
   flutter:
     sdk: flutter
+  ai_barcode_scanner: ^3.0.0
+flutter:
+  uses-material-design: true
