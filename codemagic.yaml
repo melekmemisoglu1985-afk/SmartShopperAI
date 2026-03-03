@@ -1,19 +1,22 @@
 ﻿workflows:
-  android-workflow:
-    name: Android Release Build
+  ios-workflow:
+    name: iOS Release Build
     max_build_duration: 30
+    environment:
+      vars:
+        FLUTTER_VERSION: "latest"
     scripts:
       - name: Clean project
         script: |
           echo "Cleaning previous builds..."
-          ./gradlew clean
+          xcodebuild clean -project SmartShopperAI.xcodeproj -scheme SmartShopperAI
       - name: Install dependencies
         script: |
           echo "Installing dependencies..."
-          ./gradlew dependencies
-      - name: Build Release APK
+          swift package resolve
+      - name: Build iOS
         script: |
-          echo "Building Release APK..."
-          ./gradlew assembleRelease
+          echo "Building iOS archive..."
+          xcodebuild -project SmartShopperAI.xcodeproj -scheme SmartShopperAI -configuration Release -archivePath C:\Users\Muhsin\Desktop\SmartShopperAI/build/SmartShopperAI.xcarchive archive
     artifacts:
-      - app/build/outputs/**/*.apk
+      - build/SmartShopperAI.xcarchive
